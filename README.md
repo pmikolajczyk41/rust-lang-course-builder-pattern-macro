@@ -11,4 +11,6 @@ Zawarte w katalogu `builder-pattern-macro` pliki `Cargo.toml` i `Cargo.lock` są
 make test
 ```
 
+_(Testy dostarczone w tym repozytorium stanowią jedynie część z uruchamianych testów na Satori)._
+
 `Makefile` posiada również inne potencjalnie pomocne komendy - opis dostępny przez `make help`.
