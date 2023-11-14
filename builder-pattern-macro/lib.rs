@@ -1,6 +1,6 @@
+use crate::{codegen::generate_code, ir::IR};
 use proc_macro::TokenStream;
 use proc_macro2::TokenStream as TokenStream2;
-use crate::{ir::IR, codegen::generate_code};
 
 type SynResult<T> = Result<T, syn::Error>;
 
@@ -39,10 +39,7 @@ mod ir {
 mod codegen {
     use proc_macro2::TokenStream as TokenStream2;
 
-    use super::{
-        ir::IR,
-        SynResult,
-    };
+    use super::{ir::IR, SynResult};
 
     pub fn generate_code(_ir: IR) -> SynResult<TokenStream2> {
         todo!()

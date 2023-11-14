@@ -1,4 +1,4 @@
-.PHONY: build-macro build-all test clean help
+.PHONY: build-macro build-all test lint clean help
 
 build-macro: ## Build macro crate
 	cargo build --release --manifest-path builder-pattern-macro/Cargo.toml
@@ -8,6 +8,10 @@ build-all: build-macro ## Build both macro crate and test crate
 
 test: ## Run macro tests
 	TRYBUILD=overwrite cargo test --manifest-path macro-tests/Cargo.toml --release || exit 1
+
+lint: ## Check linting rules
+	cargo fmt --all --check --manifest-path macro-tests/Cargo.toml
+	cargo fmt --all --check --manifest-path builder-pattern-macro/Cargo.toml
 
 clean: ## Clean all the workspace build files
 	cargo clean --manifest-path macro-tests/Cargo.toml
