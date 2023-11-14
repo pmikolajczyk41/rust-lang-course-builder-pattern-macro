@@ -1,9 +1,14 @@
-# rust-lang-course-rust-repo
-_Szablon repozytorium dla projektu w języku Rust_
+# Builder-pattern macro
+_Szablon rozwiązania do zadania mikro-makro_
 
-## Zadania
+Edytujemy wyłącznie plik `builder-pattern-macro/lib.rs`.
+Zawiera on proponowaną strukturę rozwiązania, ale w żadnym razie nie jest to jedyna możliwa implementacja.
 
-1. Stwórz nowe (prywatne!) repozytorium na podstawie szablonu ([tutorial](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)).
-2. Dodaj dwa kolejne kroki CI:
-   - odpalenie lintera (`cargo clippy`)
-   - odpalenie testów (`cargo test`)
+Zawarte w katalogu `builder-pattern-macro` pliki `Cargo.toml` i `Cargo.lock` są identyczne jak na Satori.
+
+## Uruchomienie testów
+```bash
+make test
+```
+
+`Makefile` posiada również inne potencjalnie pomocne komendy - opis dostępny przez `make help`.
