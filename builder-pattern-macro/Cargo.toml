@@ -1,0 +1,14 @@
+[package]
+name = "builder-pattern-macro"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+proc-macro = true
+path = "lib.rs"
+
+[dependencies]
+darling = "=0.20.3"
+proc-macro2 = "=1"
+syn = { version = "=2", features = ["full"] }
+quote = "=1"
