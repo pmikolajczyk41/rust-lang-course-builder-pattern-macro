@@ -39,7 +39,6 @@ mod tests {
     #[test]
     fn compile_failures() {
         let t = trybuild::TestCases::new();
-        t.compile_fail("src/compile-fail/unnamed-field.rs");
-        t.compile_fail("src/compile-fail/incorrect-attribute-value.rs");
+        t.compile_fail("src/compile-fail/*.rs");
     }
 }

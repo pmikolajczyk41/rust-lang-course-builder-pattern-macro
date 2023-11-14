@@ -1,7 +1,0 @@
-error: custom attribute panicked
- --> src/compile-fail/unnamed-field.rs:5:1
-  |
-5 | #[builder_pattern]
-  | ^^^^^^^^^^^^^^^^^^
-  |
-  = help: message: Unnamed field are not supported

@@ -7,7 +7,7 @@ build-all: build-macro ## Build both macro crate and test crate
 	cargo build --release --manifest-path macro-tests/Cargo.toml
 
 test: ## Run macro tests
-	cargo test --manifest-path macro-tests/Cargo.toml --release || exit 1
+	TRYBUILD=overwrite cargo test --manifest-path macro-tests/Cargo.toml --release || exit 1
 
 clean: ## Clean all the workspace build files
 	cargo clean --manifest-path macro-tests/Cargo.toml
