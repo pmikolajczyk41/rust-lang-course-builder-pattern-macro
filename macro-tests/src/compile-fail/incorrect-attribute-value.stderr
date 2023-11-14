@@ -1,0 +1,5 @@
+error: Unexpected literal type `int`
+ --> src/compile-fail/incorrect-attribute-value.rs:5:33
+  |
+5 | #[builder_pattern(overwriting = 12)]
+  |                                 ^^
