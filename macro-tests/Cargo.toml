@@ -1,8 +1,8 @@
 [package]
-name = "builder-pattern"
+name = "macro-tests"
 version = "0.1.0"
 edition = "2021"
 
 [dev-dependencies]
-builder-pattern-macro = { path = "builder-pattern-macro" }
+builder-pattern-macro = { path = "../builder-pattern-macro" }
 trybuild = { version = "=1.0.83" }
