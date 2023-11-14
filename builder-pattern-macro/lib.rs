@@ -1,11 +1,12 @@
 use proc_macro::TokenStream;
 use proc_macro2::TokenStream as TokenStream2;
+use crate::{ir::IR, codegen::generate_code};
 
 type SynResult<T> = Result<T, syn::Error>;
 
 #[proc_macro_attribute]
 pub fn builder_pattern(attr: TokenStream, item: TokenStream) -> TokenStream {
-    match builder_pattern_internal(attr, item) {
+    match builder_pattern_internal(attr.into(), item.into()) {
         Ok(ts) => ts.into(),
         Err(e) => e.to_compile_error().into(),
     }
@@ -14,19 +15,21 @@ pub fn builder_pattern(attr: TokenStream, item: TokenStream) -> TokenStream {
 /// Auxiliary function enabling two convenient things:
 /// - `?` operator usage
 /// - working with `TokenStream2` instead of `TokenStream` objects
-fn builder_pattern_internal(attr: TokenStream, item: TokenStream) -> SynResult<TokenStream2> {
+fn builder_pattern_internal(attr: TokenStream2, item: TokenStream2) -> SynResult<TokenStream2> {
     let ir = IR::try_from((attr, item))?;
     generate_code(ir)
 }
 
 /// Intermediate representation of the input (parsing arguments and handling AST).
 mod ir {
+    use proc_macro2::TokenStream as TokenStream2;
+
     pub struct IR;
 
-    impl TryFrom<(TokenStream, TokenStream)> for IR {
+    impl TryFrom<(TokenStream2, TokenStream2)> for IR {
         type Error = syn::Error;
 
-        fn try_from((attr, item): (TokenStream, TokenStream)) -> Result<Self, Self::Error> {
+        fn try_from((_attr, _item): (TokenStream2, TokenStream2)) -> Result<Self, Self::Error> {
             todo!()
         }
     }
@@ -41,7 +44,7 @@ mod codegen {
         SynResult,
     };
 
-    pub fn generate_code(ir: IR) -> SynResult<TokenStream2> {
+    pub fn generate_code(_ir: IR) -> SynResult<TokenStream2> {
         todo!()
     }
 }
